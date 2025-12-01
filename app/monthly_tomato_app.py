@@ -1,10 +1,14 @@
 from flask import Flask, request, render_template
 import pickle
 import numpy as np
+import os
 
 #[0 'April',1 'August',2'December',3 feb ,4 jan ,5'July',6'June',7'March',8'May',9'November',10'October',11'September']
 #my_dict = {1: 'apple', 2: 'ball'}  print(my_dict['age'])
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
+
+# Path to the model file
+MODEL_PATH = os.path.join(os.path.dirname(__file__), '..', 'models', 'monthly_gbr_model3.pkl')
 
 @app.route('/')
 def home():
@@ -159,7 +163,7 @@ def get_price():
         mon = months[int(month)]
         market = areas[int(area)]
         ton = tonnes
-        pkl_file = open('monthly_gbr_model3.pkl', 'rb')
+        pkl_file = open(MODEL_PATH, 'rb')
         logmodel = pickle.load(pkl_file)
 
         array = np.array([int(month),int(area),float(tonnes),float(Mp),float(mp)])
