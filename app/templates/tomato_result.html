@@ -1,8 +1,126 @@
+<!DOCTYPE html>
 <html>
-<title>Tomato Price Prediction App</title>
+<head>
+    <title>Price Prediction Result</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        .tomato-icon {
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+        h1 {
+            color: #d63031;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        .price-box {
+            background: #d63031;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+        .price-label {
+            color: rgba(255,255,255,0.9);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .price {
+            color: white;
+            font-size: 42px;
+            font-weight: 700;
+        }
+        .price span {
+            font-size: 20px;
+            font-weight: 400;
+        }
+        .details {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+        .detail-label {
+            color: #636e72;
+            font-size: 14px;
+        }
+        .detail-value {
+            color: #2d3436;
+            font-weight: 600;
+        }
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            background: #d63031;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #b71c1c;
+        }
+    </style>
+</head>
 <body>
+    <div class="container">
+        <div class="tomato-icon">🍅</div>
+        <h1>Predicted Tomato Price</h1>
 
-<h3> The predicted price for {{ton}} tonnes, in {{market}} market,<br> in the month of {{mon}} is,  Rs{{ prediction }} /Quintal</h3>
+        <div class="price-box">
+            <div class="price-label">Estimated Price</div>
+            <div class="price">Rs {{ prediction }} <span>/ Quintal</span></div>
+        </div>
 
+        <div class="details">
+            <div class="detail-row">
+                <span class="detail-label">Market</span>
+                <span class="detail-value">{{ market }}</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Month</span>
+                <span class="detail-value">{{ mon }}</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Supply</span>
+                <span class="detail-value">{{ ton }} tonnes</span>
+            </div>
+        </div>
+
+        <a href="/" class="btn">Make Another Prediction</a>
+    </div>
 </body>
 </html>
