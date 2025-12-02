@@ -48,15 +48,14 @@ Source: [Kaggle - Vegetable Price Tomato](https://www.kaggle.com/vinayreddy4034/
 
 ## 📈 Results
 
-- ✅ **Training Score**: 99%
-- ✅ **Test Score**: 98% (when including Max/Min prices — which are strongly correlated to target)
+- **Training Score**: 99%
+- **Test Score**: 98% (when including Max/Min prices — which are strongly correlated to target)
 
-- ❗ **Realistic Model (without Max/Min features)**:
-  - Training Score: 83%
-  - Test Score: 65%
-  - RMSE: ₹320
-
-Including external variables like weather, pest activity, or market access could improve real-world performance.
+- **Realistic Model (without Max/Min features)**:
+- Training Score: 83%
+- Test Score: 65%
+- RMSE: ₹320
+  Including external variables like weather, pest activity, or market access could improve real-world performance.
 
 ## 📂 Files Overview
 
