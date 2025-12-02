@@ -1,31 +1,166 @@
 <!DOCTYPE html>
 <html>
-<title>Tomato Price Prediction App</title>
+<head>
+    <title>Tomato Price Prediction</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            color: #d63031;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #636e72;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .error {
+            background: #ffe6e6;
+            color: #d63031;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2d3436;
+            font-weight: 600;
+        }
+        select, input[type="number"] {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 20px;
+            border: 2px solid #dfe6e9;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        select:focus, input[type="number"]:focus {
+            outline: none;
+            border-color: #ff6b6b;
+        }
+        button {
+            width: 100%;
+            padding: 16px;
+            background: #d63031;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #b71c1c;
+        }
+        .tomato-icon {
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
 <body>
-<h1>Tomato Price Prediction App</h1>
+    <div class="container">
+        <div class="tomato-icon">🍅</div>
+        <h1>Tomato Price Predictor</h1>
+        <p class="subtitle">Predict tomato prices in Karnataka markets</p>
 
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
 
-<form action = "/price" method="POST">
-<p>The markets and corresponding id's are as follows:<br>
- 0) Arasikere  1) Bagepalli 2) Bangarpet 3) Belur 4)Binny Mill (F&V),Bangalore <br>
- 5) Channapatana 6) Channarayapatna 7) Chickkaballapura 8) Chikkamagalore 9) Chintamani<br>
- 10) Davangere 11) Doddaballa Pur 12) Gowribidanoor 13) Gundlupet 14) Hassan 15) Holalkere<br>
- 16) Holenarsipura 17) Honnali 18) Hoskote 19) Hospet 20) Hunsur 21) K.R. Pet 22) K.R.Nagar<br>
- 23) Kanakapura  24) Kolar 25) Kollegal 26) Kudchi 27) Maddur 28) Malur 29) Mulabagilu<br>
- 30) Mysore (Bandipalya) 31) Nagamangala 32) Ramanagara 33) Shimoga 34) Somvarpet<br>
- 35) Srinivasapur 36) T. Narasipura 37) Tarikere 38) Tumkur 39) Udupi</p>
-<p> Enter market id [0-39]:<input name="area" type ="text" /> </p>
+        <form action="/price" method="POST">
+            <label for="area">Select Market</label>
+            <select name="area" id="area" required>
+                <option value="0">Arasikere</option>
+                <option value="1">Bagepalli</option>
+                <option value="2">Bangarpet</option>
+                <option value="3">Belur</option>
+                <option value="4">Binny Mill (F&V), Bangalore</option>
+                <option value="5">Channapatana</option>
+                <option value="6">Channarayapatna</option>
+                <option value="7">Chickkaballapura</option>
+                <option value="8">Chikkamagalore</option>
+                <option value="9">Chintamani</option>
+                <option value="10">Davangere</option>
+                <option value="11">Doddaballa Pur</option>
+                <option value="12">Gowribidanoor</option>
+                <option value="13">Gundlupet</option>
+                <option value="14">Hassan</option>
+                <option value="15">Holalkere</option>
+                <option value="16">Holenarsipura</option>
+                <option value="17">Honnali</option>
+                <option value="18">Hoskote</option>
+                <option value="19">Hospet</option>
+                <option value="20">Hunsur</option>
+                <option value="21">K.R. Pet</option>
+                <option value="22">K.R.Nagar</option>
+                <option value="23">Kanakapura</option>
+                <option value="24">Kolar</option>
+                <option value="25">Kollegal</option>
+                <option value="26">Kudchi</option>
+                <option value="27">Maddur</option>
+                <option value="28">Malur</option>
+                <option value="29">Mulabagilu</option>
+                <option value="30">Mysore (Bandipalya)</option>
+                <option value="31">Nagamangala</option>
+                <option value="32">Ramanagara</option>
+                <option value="33">Shimoga</option>
+                <option value="34">Somvarpet</option>
+                <option value="35">Srinivasapur</option>
+                <option value="36">T. Narasipura</option>
+                <option value="37">Tarikere</option>
+                <option value="38">Tumkur</option>
+                <option value="39">Udupi</option>
+            </select>
 
-<p> Enter the number corresponding to the month as folows: <br>
-    0)April 1)August 2)December 3)February  4)January  5)July <br> 6)June 7)March 8)May 9)November 10)October 11)September</p>
-	<!1)January 2)February 3)March 4)April 5)May 6)June 7)July 8)August<br 9)September 10)October 11)November 12)December</p>
-<p> Enter month number:<input name="month" type ="text" /> </p>
-<p> Enter the mean market inflow tonnes for the given month: <input name="tonnes" type ="text"  /> </p>
+            <label for="month">Select Month</label>
+            <select name="month" id="month" required>
+                <option value="4">January</option>
+                <option value="3">February</option>
+                <option value="7">March</option>
+                <option value="0">April</option>
+                <option value="8">May</option>
+                <option value="6">June</option>
+                <option value="5">July</option>
+                <option value="1">August</option>
+                <option value="11">September</option>
+                <option value="10">October</option>
+                <option value="9">November</option>
+                <option value="2">December</option>
+            </select>
 
+            <label for="tonnes">Expected Supply (tonnes)</label>
+            <input name="tonnes" id="tonnes" type="number" step="0.1" min="0.1" placeholder="e.g., 50" required />
 
-<p> <input type ="submit" value="submit" /> </p>
-</form>
+            <button type="submit">Predict Price</button>
+        </form>
+    </div>
 </body>
 </html>
-
-

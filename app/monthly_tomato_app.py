@@ -20,9 +20,21 @@ def get_price():
     Mp =0
     if request.method=='POST':
         result=request.form
-        area = int(result['area'])
-        tonnes = result['tonnes']
-        month = result['month']
+
+        # Input validation
+        try:
+            area = int(result['area'])
+            tonnes = float(result['tonnes'])
+            month = int(result['month'])
+        except (ValueError, KeyError):
+            return render_template('monthly_tomato_home.html', error="Please enter valid numbers for all fields.")
+
+        if area < 0 or area > 39:
+            return render_template('monthly_tomato_home.html', error="Market ID must be between 0 and 39.")
+        if month < 0 or month > 11:
+            return render_template('monthly_tomato_home.html', error="Month must be between 0 and 11.")
+        if tonnes <= 0:
+            return render_template('monthly_tomato_home.html', error="Tonnes must be greater than 0.")
         if (area == 0):
             Mp = 1375
             mp = 1375
