@@ -41,7 +41,7 @@ Source: [Kaggle - Vegetable Price Tomato](https://www.kaggle.com/vinayreddy4034/
 
 ## 📊 Key Insights from the Data
 
-- Most markets receive ~60 tonnes/month — prices crash when supply exceeds this
+- Most markets receive ~60 tonnes/month - prices crash when supply exceeds this
 - Kolar is the largest and most influential market
 - Same supply quantities yield different prices across markets (market inefficiency)
 - Modal, Max, and Min prices are ~80% correlated
@@ -49,7 +49,7 @@ Source: [Kaggle - Vegetable Price Tomato](https://www.kaggle.com/vinayreddy4034/
 ## 📈 Results
 
 - **Training Score**: 99%
-- **Test Score**: 98% (when including Max/Min prices — which are strongly correlated to target)
+- **Test Score**: 98% (when including Max/Min prices - which are strongly correlated to target)
 
 - **Realistic Model (without Max/Min features)**:
 - Training Score: 83%
@@ -97,3 +97,4 @@ This project was completed as part of the Project-Based Learning (PBL) contest a
 
 1. Merlyn Mercylona Maki Reddy
 2. Aishwarya M
+
