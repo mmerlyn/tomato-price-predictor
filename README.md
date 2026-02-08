@@ -23,7 +23,7 @@ Source: [Kaggle - Vegetable Price Tomato](https://www.kaggle.com/vinayreddy4034/
 - Daily price records from 2016-2018
 - Features: Market Area, Date, Tonnes, Min/Max/Modal Price
 
-## 🛠 Technologies Used
+## Technologies Used
 
 - Python
 - Pandas, NumPy
@@ -88,13 +88,11 @@ Source: [Kaggle - Vegetable Price Tomato](https://www.kaggle.com/vinayreddy4034/
 - Visualize trends in a more interactive way (dashboards or maps)
 - Help farmers estimate profits for different harvest levels
 
-## 📜 License
+## 📜 Acknowledgements
 
-© All rights reserved.  
 This project was completed as part of the Project-Based Learning (PBL) contest at **BMS Institute of Technology and Management**, Bengaluru, India.
 
 **Team Members:**
 
 1. Merlyn Mercylona Maki Reddy
 2. Aishwarya M
-
